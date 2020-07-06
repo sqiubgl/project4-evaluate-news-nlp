@@ -14,7 +14,9 @@ function handleSubmit(event) {
   })
     .then((res) => res.json())
     .then(function (res) {
-      document.getElementById("results").innerHTML = res.text;
+      document.getElementById(
+        "results"
+      ).innerHTML = `Polarity: ${res.polarity} <br> Subjectivity: ${res.subjectivity} <br> Text: ${res.text} <br> Polarity Confidence: ${res.polarity_confidence} <br> Subjectivity confidence : ${res.subjectivity_confidence} `;
     });
 }
 

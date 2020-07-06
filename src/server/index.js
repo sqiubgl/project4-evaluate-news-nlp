@@ -58,9 +58,3 @@ app.post("/api", async (req, res) => {
     console.log(error);
   }
 });
-
-// app.get("/test", function (req, res) {
-//   res.send(mockAPIResponse);
-// });
-
-// console.log(`Your API key is ${process.env.API_KEY}`);
