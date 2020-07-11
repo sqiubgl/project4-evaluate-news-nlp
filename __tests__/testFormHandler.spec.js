@@ -1,14 +1,15 @@
-import { handleSubmit } from "../src/client/js/formHandler";
+// import { handleSubmit,postData } from "../src/client/js/formHandler";
+const formHandler = require("../src/client/js/formHandler");
 
 describe("Testing the submit functionality", () => {
   test("Test if handleSubmit() is defined", () => {
-    expect(handleSubmit).toBeDefined();
+    expect(formHandler).toBeDefined();
   });
-  test("Test if post is working", async (done) => {
-    const data = await handleSubmit("http://localhost:8081/api", {
-      text: "ABC Test",
+  test("Test formHandler postData", async (done) => {
+    const data = await formHandler.postData("http://localhost:8081/api", {
+      formText: "abc",
     });
-    expect(data.text).toBe("ABC Test");
+    expect(data.polarity).toBe("neutral");
     done();
   });
 });
