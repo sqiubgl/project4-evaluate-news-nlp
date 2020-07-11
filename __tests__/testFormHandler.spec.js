@@ -6,9 +6,7 @@ describe("Testing the submit functionality", () => {
     expect(formHandler).toBeDefined();
   });
   test("Test formHandler postData", async (done) => {
-    const data = await formHandler.postData("http://localhost:8081/api", {
-      formText: "abc",
-    });
+    const data = await formHandler.postData("http://localhost:8081/api", {});
     expect(data.polarity).toBe("neutral");
     done();
   });
