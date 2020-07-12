@@ -9,7 +9,7 @@ function handleSubmit(event) {
   if (formText === "") {
     document.getElementById("results").innerHTML = "Please input some text!";
   } else {
-    performAction();
+    performAction("http://localhost:8081/api", formText);
   }
 
   // fetch("http://localhost:8081/api", {
@@ -26,9 +26,7 @@ function handleSubmit(event) {
 }
 
 function performAction(url, userInput) {
-  postData(url, userInput)
-    .then((res) => res.json())
-    .then(updateUI(res));
+  postData(url, userInput).then((res) => updateUI(res));
 }
 
 const postData = async (url, formText = {}) => {

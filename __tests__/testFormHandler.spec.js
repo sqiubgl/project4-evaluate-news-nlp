@@ -5,9 +5,10 @@ describe("Testing the submit functionality", () => {
   test("Test if handleSubmit() is defined", () => {
     expect(formHandler).toBeDefined();
   });
-  test("Test formHandler postData", async (done) => {
-    const data = await formHandler.postData("http://localhost:8081/api", {});
-    expect(data.polarity).toBe("neutral");
-    done();
+  test("Test formHandler postData", async () => {
+    const url = "https://wiki.ubuntu.com/";
+    formHandler.postData("http://localhost:8081/api", url).then((res) => {
+      expect(res.polarity).toBe("neutral");
+    });
   });
 });
